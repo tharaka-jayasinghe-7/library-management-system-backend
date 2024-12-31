@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const controller = require("./controller");
+const bookController = require("./Controllers/bookController");
 
 app.use(cors());
 
@@ -13,16 +13,27 @@ app.use(
 
 app.use(express.json());
 
-app.get("/users", (req, res) => {
-  controller.getUsers((users) => {
-    res.send(users);
+app.get("/getBooks", (req, res) => {
+  bookController.getBooks((req, res, next) => {
+    res.send();
   });
 });
 
-app.get("/user", (req, res) => {
-  const id = req.query.id;
-  controller.getUserById(id, (user) => {
-    res.send(user);
+app.post("/addBook", (req, res) => {
+  bookController.addBook(req.body, (callback) => {
+    res.send();
+  });
+});
+
+app.put("/updateBook", (req, res) => {
+  bookController.updateBook(req.body, (callback) => {
+    res.send(callback);
+  });
+});
+
+app.delete("/deletBook", (req, res) => {
+  bookController.deleteBook(req.body, (callback) => {
+    res.send(callback);
   });
 });
 
