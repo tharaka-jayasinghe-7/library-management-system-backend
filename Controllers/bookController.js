@@ -13,12 +13,13 @@ const getBooks = (req, res, next) => {
 
 const addBook = (req, res, next) => {
   const book = new Book({
-    _id: req.body._id,
     title: req.body.title,
     author: req.body.author,
     publisher: req.body.publisher,
     price: req.body.price,
     qty: req.body.qty,
+    availability: req.body.availability,
+    category: req.body.category,
   });
   book
     .save()
@@ -42,6 +43,8 @@ const updateBook = (req, res, next) => {
         publisher: publisher,
         price: price,
         qty: qty,
+        availability: req.body.availability,
+        category: req.body.category,
       },
     }
   )
