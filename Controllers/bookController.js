@@ -1,4 +1,3 @@
-const { response } = require("../app");
 const Book = require("../Models/bookModel");
 
 const getBooks = (req, res, next) => {
