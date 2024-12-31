@@ -1,4 +1,3 @@
-const { response } = require("../app");
 const User = require("../Models/userModel");
 
 const getUsers = (req, res, next) => {
