@@ -1,8 +1,7 @@
-const { response } = require("../app");
 const User = require("../Models/userModel");
 
 const getUsers = (req, res, next) => {
-  Book.find()
+  User.find()
     .then((response) => {
       res.json({ response });
     })

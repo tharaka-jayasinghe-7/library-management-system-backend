@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const bookController = require("./Controllers/bookController");
 const userController = require("./Controllers/userController");
+const borrowingController = require("./Controllers/borrowingController");
 
 app.use(cors());
 
@@ -60,6 +61,31 @@ app.put("/updateUser", (req, res) => {
 
 app.delete("/deleteUser", (req, res) => {
   userController.deleteUser(req.body, (callback) => {
+    res.send(callback);
+  });
+});
+
+//borrowing
+app.get("/getborrowings", (req, res) => {
+  borrowingController.getBorrowings((req, res, next) => {
+    res.send();
+  });
+});
+
+app.post("/addBorrowing", (req, res) => {
+  borrowingController.addBorrowing(req.body, (callback) => {
+    res.send();
+  });
+});
+
+app.put("/updateBorrowing", (req, res) => {
+  borrowingController.updateBorrowing(req.body, (callback) => {
+    res.send(callback);
+  });
+});
+
+app.delete("/deleteBorrowing", (req, res) => {
+  borrowingController.deleteBorrowing(req.body, (callback) => {
     res.send(callback);
   });
 });
