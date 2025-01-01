@@ -9,6 +9,8 @@ const borrowingSchema = new Schema({
   isReturned: { type: Boolean, default: false },
 });
 
+borrowingSchema.index({ userId: 1, bookId: 1 });
+
 const Borrowing = mongoose.model("Borrwoing", borrowingSchema);
 
 module.exports = Borrowing;

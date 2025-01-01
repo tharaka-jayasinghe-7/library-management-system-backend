@@ -11,6 +11,9 @@ const bookSchema = new Schema({
   availability: Boolean,
 });
 
+bookSchema.index({ title: 1 });
+bookSchema.index({ author: 1 });
+
 const Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;
